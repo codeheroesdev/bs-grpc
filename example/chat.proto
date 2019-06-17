@@ -2,6 +2,7 @@ syntax = "proto3";
 package chat;
 message Message {
   string message = 1;
+  bytes messageBytes = 2;
 }
 message MessageAck {
   oneof result {

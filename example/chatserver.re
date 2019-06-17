@@ -4,6 +4,7 @@ let chatService =
   Grpc.Chat.ChatService.t(~sendMessage=(call, callback) => {
     let request = call |> Grpc.Chat.ChatService.SendMessageRpc.request;
     let message = request |> Grpc.Chat.Message.message;
+    
     let replyMessage = lastMessage^;
     switch (message) {
     | None => ()

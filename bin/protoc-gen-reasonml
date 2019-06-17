@@ -505,7 +505,7 @@ const mapJustType = (fieldProto, scopeName) => {
     case protobufs.google.protobuf.FieldDescriptorProto.Type.TYPE_BOOL:
       return 'bool'
     case protobufs.google.protobuf.FieldDescriptorProto.Type.TYPE_BYTES:
-      return 'UNHANDLED_TYPE_BYTES'
+      return 'Node.Buffer.t'
     case protobufs.google.protobuf.FieldDescriptorProto.Type.TYPE_STRING:
       return 'string'
     case protobufs.google.protobuf.FieldDescriptorProto.Type.TYPE_DOUBLE:

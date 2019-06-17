@@ -5,7 +5,7 @@
     "clean": "bsb -clean-world",
     "build": "npm run compile-static-protobuf-compiler-protobufs",
     "watch": "bsb -make-world -w",
-    "postinstall": "npm run compile-static-protobuf-compiler-protobufs",
+    "prepublish": "npm run compile-static-protobuf-compiler-protobufs",
     "compile-static-protobuf-compiler-protobufs": "./node_modules/.bin/pbjs -t static-module -p node_modules/grpc-tools/bin/google/protobuf tin.proto node_modules/grpc-tools/bin/google/protobuf/compiler/plugin.proto > src/protobufs.js",
     "compile-static-protobuf-compiler-protobufs-with-extensions": "./node_modules/.bin/pbjs -t static-module -p node_modules/grpc-tools/bin/google/protobuf myplugin.proto > src/protobufs.js",
     "compile-static-reasonml-bindings": "PATH=\"./bin:$PATH\" ./node_modules/.bin/grpc_tools_node_protoc example/chat.proto --reasonml_out=src"

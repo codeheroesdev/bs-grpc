@@ -315,7 +315,7 @@ const boilerPlate = `
   type buffer;
 
   /* This type is part of the type of grpc.ServerCredentials.createSsl() */
-  module ServerKeyAndCert {
+  module ServerKeyAndCert = {
     [@bs.deriving abstract]
     type t = {
       [@bs.as "private_key"] privateKey: buffer,
@@ -812,7 +812,7 @@ require('read-all-stream')(process.stdin, {encoding:null}).then(buf => {
     /* emit code for each sub-module in order */
     subModuleOrder.forEach(subModulePosition => {
       const shortModuleName = subModulePosition.shortModuleName
-      code += `module ${shortModuleName} {\n`
+      code += `module ${shortModuleName} = {\n`
       code += emitModule(module.modules[shortModuleName])
       code += `};\n`
     })
@@ -1132,7 +1132,7 @@ require('read-all-stream')(process.stdin, {encoding:null}).then(buf => {
         const inputType = resolveRelative(rpc.inputType, module.moduleName)
         const outputType = resolveRelative(rpc.outputType, module.moduleName)
         code += `
-          module ${upper1(rpc.name)}Rpc {
+          module ${upper1(rpc.name)}Rpc = {
             /* Rpc module */
             /** the input/request type of the ${rpc.name} RPC */
             type inputType = ${inputType};
